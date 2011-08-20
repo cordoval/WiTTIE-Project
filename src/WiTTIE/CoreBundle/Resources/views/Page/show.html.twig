@@ -1,0 +1,9 @@
+{% extends 'WiTTIECoreBundle::base.html.twig' %}
+
+{% block title page.title %}
+
+{% block body %}
+{% render 'WiTTIEEditorBundle:Default:slots' with { 'slots': page.slots, 'editable': editable } %}
+{% render 'WiTTIECoreBundle:Page:pages' with { 'page': page, 'depth': 3 } %}
+{% render 'WiTTIECoreBundle:Response:responses' with { 'page': page } %}
+{% endblock %}

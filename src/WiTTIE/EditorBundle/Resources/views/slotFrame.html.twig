@@ -1,0 +1,14 @@
+<div class="slot {% block class '' %}">
+{% if slot.editable %}
+<ul class="controls">
+	<li class="left"><a href="{{ path('wittie_editor_default_new', {'id': slot.id}) }}" wittie="dialog" title="Add Content">Add Content Below</a></li>
+	<li><a href="{{ path('wittie_editor_default_down', {'id': slot.id}) }}" wittie="reload">Down</a></li>
+	<li><a href="{{ path('wittie_editor_default_up', {'id': slot.id}) }}" wittie="reload">Up</a></li>
+	<li><a href="{{ path('wittie_editor_default_delete', {'id': slot.id}) }}" wittie="dialog">Delete</a></li>
+	<li><a href="{{ path('wittie_editor_default_edit', {'id': slot.id}) }}" wittie="dialog" title="Edit Content">Edit</a></li>
+</ul>
+{% endif %}
+{% block body %}
+{% endblock %}
+</div>
+

@@ -1,0 +1,2 @@
+app/console cache:clear -e prod --no-warmup
+app/console cache:clear -e dev --no-warmup

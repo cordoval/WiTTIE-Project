@@ -1,0 +1,94 @@
+{% set title = block('title') %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>{% if title %}{{ title }} - {% endif %}WiTTIE Project</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+{% block stylesheets %}
+	<link rel="stylesheet" type="text/css" media="screen" href="http://fonts.googleapis.com/css?family=Cabin+Sketch:bold" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/jquery-ui-1.8.12.custom.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+{% if is_granted('ROLE_USER') %}
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/editor.css" />
+{% endif %}
+{% endblock %}
+</head>
+<body>
+	<div id="help-panel">
+		<a id="help" href="{{ path('wittie_core_default_help') }}">Help</a>
+		<iframe src="{{ path('wittie_core_default_help', {'format':'blank'}) }}"></iframe>
+	</div>
+	<div id="global">
+		<div id="global-inner" class="clearfix">
+			<div id="sidebar" class="sidebar four">
+				<a id="logo" href="{{ url('_homepage') }}">WiTTIE</a>
+				<hr class="stars" />
+{% render 'WiTTIECoreBundle:Book:navigation' %}
+{% block subnav %}{% endblock %}
+			</div>
+			<div id="content" class="four three">
+				<div class="inner">
+{% render 'WiTTIECoreBundle:User:navigation' %}
+{% if title %}
+
+<h1>{{ title }}</h1>
+{% if wittie.breadcrumb %}
+<div id="breadcrumb" class="clearfix">
+	<ul>
+{% 	for page in wittie.breadcrumb %}
+		<li><a href="{{ path('wittie_core_page_show', { 'id': page.id }) }}">{{ page.title }}</a></li>
+{% 	endfor %}
+	</ul>
+</div>
+{% endif %}
+{% endif %}
+{% set flashes = {'error':{'icon':'alert', 'class':'error'}, 'notice':{'icon':'info', 'class':'highlight'}} %}
+{% for level,flash in app.session.getFlashes() %}
+
+		<div class="flash {{ level }} ui-state-{{ flashes[level].class }} ui-corner-all">
+			<span class="ui-icon ui-icon-{{ flashes[level].icon }}"></span>
+			{{ flash }}
+		</div>
+{% endfor %}
+
+{% block body %}{% endblock %}
+
+				</div>
+			</div>
+		</div>
+		<div id="global-coverup"></div>
+	</div>
+	<div id="footer" class="clearfix">
+			<div id="f-sidebar" class="sidebar four">
+				<a id="what" href="{{ path('catchall', {'slug':'wittie/what'}) }}">What is WiTTIE?</a>
+				<hr class="stars" />
+				<div id="social">
+					<a id="social-youtube" href="http://www.youtube.com/">YouTube</a>
+					<a id="social-facebook" href="http://www.facebook.com/">Facebook</a>
+					<a id="social-twitter" href="http://www.twitter.com/">Twitter</a>
+				</div>
+			</div>
+			<div id="f-content" class="four three">
+				<a id="f-pbd">Design provided by <span class="ada">PixelBrain Design</span></a>
+				<a id="f-cc">Text licensed under <span class="ada">Creative Commons, Non-Commercial, Share alike</span></a>
+				<p>&copy; WiTTIE Project and its licensors.</p>
+				<p>
+					<a href="{{ path('catchall', {'slug':'wittie/privacy-policy'}) }}">Privacy Policy</a>
+					|
+					<a href="{{ path('catchall', {'slug':'wittie/about'}) }}">About WiTTIE</a>
+					|
+					<a href="{{ path('catchall', {'slug':'wittie/terms-of-use'}) }}">Terms of Use</a>
+				</p>
+			</div>
+	</div>
+{% block javascripts %}
+
+	<script type="text/javascript" src="/js/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="/js/jquery-ui-1.8.12.custom.min.js"></script>
+	<script type="text/javascript" src="/js/help.js"></script>
+{% if is_granted('ROLE_USER') %}
+	<script type="text/javascript" src="/js/editor.js"></script>
+{% endif %}
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,4 @@
+{% if wittie.book %}
+<h2><a href="{{ path('wittie_core_page_show', { 'id': wittie.book.id }) }}">{{ wittie.book.title }}</a></h2>
+{% render 'WiTTIECoreBundle:Page:pages' with { 'page': wittie.book } %}
+{% endif %}

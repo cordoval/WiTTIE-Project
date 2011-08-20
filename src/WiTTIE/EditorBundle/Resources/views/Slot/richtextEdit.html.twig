@@ -1,0 +1,10 @@
+{% extends 'WiTTIEEditorBundle::slotEdit.html.twig' %}
+
+{% block class 'tinymce' %}
+
+{% block body %}
+<form action="{{ path('wittie_editor_default_edit', {'id': slot.id}) }}" method="post" {{ form_enctype(form) }}>
+{{ form_widget(form.content) }}
+{{ form_rest(form) }}
+</form>{{ tinymce_init() }}
+{% endblock %}

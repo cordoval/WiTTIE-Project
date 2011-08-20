@@ -1,0 +1,41 @@
+{% set title = block('title') %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>{% if title %}{{ title }} - {% endif %}WiTTIE Project</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+{% block stylesheets %}
+	<link rel="stylesheet" type="text/css" media="screen" href="http://fonts.googleapis.com/css?family=Cabin+Sketch:bold" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/jquery-ui-1.8.12.custom.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/blank.css" />
+{% endblock %}
+</head>
+<body>
+{% if title %}
+
+<h1>{{ title }}</h1>
+{% if wittie.breadcrumb %}
+<div id="breadcrumb" class="clearfix">
+	<ul>
+{% 	for page in wittie.breadcrumb %}
+		<li><a href="{{ path('wittie_core_page_show', { 'id': page.id }) }}">{{ page.title }}</a></li>
+{% 	endfor %}
+	</ul>
+</div>
+{% endif %}
+{% endif %}
+{% set flashes = {'error':{'icon':'alert', 'class':'error'}, 'notice':{'icon':'info', 'class':'highlight'}} %}
+{% for level,flash in app.session.getFlashes() %}
+
+<div class="flash {{ level }} ui-state-{{ flashes[level].class }} ui-corner-all">
+	<span class="ui-icon ui-icon-{{ flashes[level].icon }}"></span>
+	{{ flash }}
+</div>
+{% endfor %}
+
+{% block body %}{% endblock %}
+
+{% block javascripts %}
+{% endblock %}
+</body>
+</html>

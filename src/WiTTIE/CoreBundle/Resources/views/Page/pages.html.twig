@@ -1,0 +1,7 @@
+{% if children|length %}
+<ul>
+{% for child in children %}
+	<li><a href="{{ path('wittie_core_page_show', { 'id': child.id }) }}">{{ child.title }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}

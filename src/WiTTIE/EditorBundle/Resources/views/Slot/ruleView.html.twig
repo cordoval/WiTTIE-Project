@@ -1,0 +1,5 @@
+{% extends 'WiTTIEEditorBundle::slotFrame.html.twig' %}
+
+{% block body %}
+<hr {% if slot.options['class'] %}class="{{ slot.options.class }}"{% endif %}/>
+{% endblock %}

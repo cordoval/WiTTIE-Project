@@ -1,0 +1,20 @@
+h1, h2, h3, h4, h5, h6 { margin: 16px 0; }
+h1
+{
+	font-family: "Cabin Sketch",sans-serif;
+	margin-top: 0;
+	font-size: 3.25em;
+}
+
+.flash { padding: .5em; margin-bottom: 1em; }
+.flash .ui-icon { float: left; margin: 2px 4px 2px 0; }
+
+th { text-align: left; vertical-align: top; }
+
+table.help-form
+{
+	
+}
+
+table.help-form input[type=text] { width: 377px; }
+table.help-form textarea { width: 377px; height: 89px; }

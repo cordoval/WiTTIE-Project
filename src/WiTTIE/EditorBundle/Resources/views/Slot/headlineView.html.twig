@@ -1,0 +1,5 @@
+{% extends 'WiTTIEEditorBundle::slotFrame.html.twig' %}
+
+{% block body %}
+<h{{ slot.options.level }}>{{ slot.options.content }}</h{{ slot.options.level }}>
+{% endblock %}

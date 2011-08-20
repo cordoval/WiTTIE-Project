@@ -1,0 +1,8 @@
+.error {}
+.error .alert {}
+.error .alert .message { padding-left: 72px; min-height: 48px; background: url("") no-repeat scroll 12px 50% transparent; }
+.error .alert .message.disabled { background-image: url("/sf/sf_default/images/icons/disabled48.png"); }
+.error .alert .message.cancel { background-image: url("/sf/sf_default/images/icons/cancel48.png"); }
+.error .alert .message.tools { background-image: url("/sf/sf_default/images/icons/tools48.png"); }
+.error .alert .message.lock { background-image: url("/sf/sf_default/images/icons/lock48.png"); }
+.error .alert .message.ok { background-image: url("/sf/sf_default/images/icons/ok48.png"); }

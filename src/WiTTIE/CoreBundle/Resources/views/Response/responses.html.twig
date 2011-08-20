@@ -1,0 +1,7 @@
+{% if responses|length %}
+<ul>
+{% for response in responses %}
+	<li><a href="{{ path('wittie_core_response_show', { 'id': response.id }) }}">{{ response.title }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}

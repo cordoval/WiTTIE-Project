@@ -1,0 +1,7 @@
+{% extends 'WiTTIEEditorBundle::slots.html.twig' %}
+
+{% block body %}
+{% for slot in slots %}
+{% render 'WiTTIEEditorBundle:Slot:view' with { 'slot': slot, 'editable': editable } %}
+{% endfor %}
+{% endblock %}

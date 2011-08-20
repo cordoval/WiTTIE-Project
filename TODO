@@ -1,0 +1,36 @@
+Modules:
+	Participants's List
+	Table of Contents
+	Data Set
+
+Slots:
+	Title
+	Headline
+	Rich Text
+	Video
+	Horizontal Rule
+	Pull Quote
+	Widget
+	Data Set
+	Poll
+	Media
+
+Properties (cascading):
+	abstract
+	num_responses
+
+Editor:
+	on slot hover
+		blue dashed border (padding when not hover)
+		edit button
+		add content after button
+
+Features:
+	internal messaging system
+	barnstars
+	media manager
+	data set
+		data set question
+
+stuff:
+	pages depth

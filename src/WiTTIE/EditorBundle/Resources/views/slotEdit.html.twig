@@ -1,0 +1,8 @@
+<div class="slot {% block class '' %}">
+{% block body %}
+<form action="{{ path('wittie_editor_default_edit', {'id': slot.id}) }}" method="post" {{ form_enctype(form) }}>
+{{ form_widget(form) }}
+</form>
+{% endblock %}
+</div>
+

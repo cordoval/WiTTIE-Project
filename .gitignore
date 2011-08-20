@@ -1,0 +1,8 @@
+/vendor/*
+/web/bundles/*
+/app/cache/*
+/app/logs/*
+/app/bootstrap*
+/app/config/parameters.ini
+
+!.gitkeep

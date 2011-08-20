@@ -1,0 +1,7 @@
+{% extends 'WiTTIECoreBundle::base.html.twig' %}
+
+{% block title response.title %}
+
+{% block body %}
+{% render 'WiTTIEEditorBundle:Default:slots' with { 'slots': response.slots, 'editable': editable } %}
+{% endblock %}

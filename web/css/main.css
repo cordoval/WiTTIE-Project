@@ -1,0 +1,310 @@
+@font-face {
+  font-family: 'SketchBlock';
+  font-style: normal;
+  font-weight: normal;
+  src: local('SketchBlock'), url('/css/Sketch_Block.woff') format('woff');
+}
+
+/* Layout */
+
+html, #global-coverup
+{
+	background: url("/images/themes/leather.jpg") no-repeat fixed top #352114;
+}
+
+body, #global-inner
+{
+	background: url("/images/bg-top.png") no-repeat scroll top transparent;
+}
+
+body
+{
+	margin: 0;
+	font: 16px sans-serif;
+}
+
+#global, #global-coverup
+{
+	width: 960px;
+}
+
+#global
+{
+	position: relative;
+	background: url("/images/bg-middle.png") repeat-y scroll 50% 50% transparent;
+	margin: 0 auto;
+}
+
+#global-inner, #footer
+{
+	position: relative;
+	padding: 0 15px;
+	width: 930px;
+}
+
+#global-inner
+{
+	padding-top: 85px;
+	z-index: 998;
+}
+
+#global-coverup
+{
+	height: 694px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+#footer
+{
+	height: 115px;
+	margin: 0 auto;
+	background: url("/images/bg-bottom.png") no-repeat scroll 50% 50% transparent;
+	text-align: center;
+	color: #3b5a9a;
+}
+#footer p { margin: 0; }
+#footer a { color: #3b5a9a; text-decoration: none; }
+#footer a:hover { color: #3b5a9a; text-decoration: underline; }
+#footer #f-sidebar hr { margin-top: 0; }
+
+#f-content
+{
+	margin-top: 24px;
+}
+
+#sidebar, #content
+{
+	min-height: 637px;
+}
+
+/* Things */
+
+#logo
+{
+	display: block;
+	width: 166px;
+	height: 150px;
+	margin: 1em auto 0;
+	background: url("/images/logo.png") no-repeat scroll 50% 50% transparent;
+	text-indent: -9999px;
+}
+
+#usernav
+{
+	position: absolute;
+	padding-right: 40px;
+	background: url("/images/users.png") no-repeat scroll right transparent;
+	height: 32px;
+	top: 3px;
+	right: 8px;
+}
+
+#breadcrumb { font-size: 80%; }
+#breadcrumb ul { list-style: none; margin: 0; padding: 0; }
+#breadcrumb ul li { float: left; padding: 0 6px; }
+#breadcrumb ul li:before { content: "> " }
+
+#what
+{
+	position: absolute;
+	top: -100%;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 74px;
+	background: url("/images/button-what.png") no-repeat scroll 50% 50% transparent;
+	text-indent: -9999px;
+	z-index: 998;
+}
+
+#help-panel
+{
+	position: fixed;
+	top: 100px;
+	left: -720px;
+	width: 680px;
+	height: 410px;
+	padding: 20px 30px 38px;
+	background: url("/images/parchment.png") no-repeat scroll 50% 50% transparent;
+	z-index: 999;
+}
+#help-panel > iframe { width: 680px; height: 410px; border: none; }
+
+#help-panel a#help
+{
+	position: absolute;
+	right: -44px;
+
+	top: 38%;
+	display: block;
+	width: 75px;
+	height: 100px;
+	background: url("/images/button-help.png") no-repeat scroll 0 50% transparent;
+	text-indent: -9999px;
+	z-index
+
+}
+#help-panel.open a#help { background-image: url("/images/button-help-close.png"); }
+
+a#f-pbd
+{
+	display: block;
+	background: url("/images/pixelbrain-design.png") no-repeat scroll left bottom transparent;
+	width: 112px;
+	height: 45px;
+	font-size: 12px;
+	text-align: left;
+	float: left;
+	margin-left: 12px;
+}
+
+a#f-cc
+{
+	display: block;
+	background: url("/images/cc-by-nc-sa.png") no-repeat scroll right bottom transparent;
+	width: 112px;
+	height: 45px;
+	font-size: 12px;
+	text-align: right;
+	float: right;
+	margin-right: 12px;
+}
+
+#social
+{
+	width: 142px;
+	margin: 0 auto;
+}
+
+a#social-youtube, a#social-facebook, a#social-twitter
+{
+	display: block;
+	float: left;
+	width: 40px;
+	height: 40px;
+	background: url("/images/icons-social.png") repeat scroll 0 50% transparent;
+	text-indent: -9999px;
+}
+
+a#social-youtube { background-position: 0 50%; }
+a#social-facebook { background-position: -40px 50%; margin: 0 .5em; }
+a#social-twitter { background-position: -80px 50%; width: 46px; }
+
+#book-links
+{
+	overflow: auto;
+	width: 574px;
+	margin: 142px auto 0;
+}
+
+a#book-find, a#book-build
+{
+	background: no-repeat scroll 50% 50% transparent;
+	width: 255px;
+	height: 161px;
+	display: block;
+	text-indent: -9999px;
+	float: left;
+	margin: 1em;
+}
+
+a#book-find
+{
+	background-image: url("/images/book-find.png");
+}
+
+a#book-build
+{
+	background-image: url("/images/book-build.png");
+}
+
+
+/* Styles */
+
+.wide form table, .wide form table input { width: 100%; }
+
+table th { text-align: left; }
+
+a { color: #3b5a9a; }
+a:hover { color: #5b7d0f; }
+
+h1, h2, h3, h4, h5, h6 { margin: 16px 0; }
+
+h1
+{
+	font-family: "Cabin Sketch",sans-serif;
+	font-size: 3.25em;
+	margin: 0;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a
+{ text-decoration: none; }
+
+h2, h4, h6 { border-bottom: 1px solid #000000; }
+
+.two, .three, .four, .five, .golden { float: left; position: relative; }
+
+.two, .two.one { width: 50%; }
+
+.three, .three.one { width: 33.3%; }
+.three.two { width: 66.6%; }
+
+.four, .four.one { width: 25%; }
+.four.two { width: 50%; }
+.four.three { width: 75%; } 
+
+.five, .five.one { width: 20% }
+.five.two { width: 40% }
+.five.three { width: 60% }
+.five.four { width: 80% }
+
+.golden, .golden.b { width: 38%; }
+.golden.a { width: 62%; }
+
+.full { width: 100%; }
+.inner { padding: 1em; }
+
+.left { float: left; }
+.right { float: right; }
+
+.ada { display: none; }
+.clearfix:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
+
+hr.stars
+{
+	border: none;
+	background: url("/images/bg-hr.png") repeat-x scroll 3px 50% transparent;
+	width: 80%;
+	height: 11px;
+}
+
+.sidebar hr.stars { width: 68px; }
+.sidebar h2, .sidebar h3, .sidebar h4, .sidebar h5, .sidebar h6 { border-bottom: none; text-align: center; }
+.sidebar ul { margin: 0; padding: 0; list-style: none; text-align: center; }
+
+a.w-icon
+{
+	width: 16px;
+	height: 16px;
+	padding-top: 3px;
+	display: inline-block;
+	background: url("/images/bg-icons.png") no-repeat scroll 50% 50% transparent;
+	text-indent: -9999px;
+}
+a.w-icon.new { background-position: -8px 3px; }
+a.w-icon.join { background-position: -40px 3px; }
+a.w-icon.big
+{
+	width: 32px;
+	height: 32px;
+}
+a.w-icon.new.big { background-position: 0 -16px; }
+a.w-icon.join.big { background-position: -32px -16px; }
+
+.flash { padding: .5em; margin-bottom: 1em; }
+.flash .ui-icon { float: left; margin: .25em .25em .25em 0; }
+
+.slots .slot { position: relative; }

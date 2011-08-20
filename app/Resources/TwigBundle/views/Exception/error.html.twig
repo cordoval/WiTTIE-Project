@@ -1,0 +1,39 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+{{ parent() }}
+<style>
+.error {}
+.error .alert {}
+.error .alert .message { padding-left: 122px; background: url("{{ asset('images/exception.gif') }}") no-repeat scroll left transparent; min-height: 124px; }
+</style>
+{% endblock %}
+
+{% block title %}An Error Occurred: {{ status_text }} - {{ parent() }}{% endblock %}
+
+{% block body %}
+<div class="error">
+	<div class="alert"> 
+		<div class="message">
+			<h1>Oops! An Error Occurred</h1>
+			<h2>The server returned a "{{ status_code }} {{ status_text }}".</h2>
+		</div>
+	</div>
+	
+	<div class="clear"></div>
+	
+	<h3>Did you type the URL?</h3>
+	<p>You may have typed the address (URL) incorrectly. Check it to make sure you've got the exact right spelling, capitalization, etc.</p>
+	
+	<h3>Did you follow a link from somewhere else at this site?</h3>
+	<p>If you reached this page from another part of this site, please email us at <?php echo mail_to(sfConfig::get('app_config_email')) ?> so we can correct our mistake.</p>
+	
+	<h3>Did you follow a link from another site?</h3>
+	<p>Links from other sites can sometimes be outdated or misspelled. Email us at <?php echo mail_to(sfConfig::get('app_config_email')) ?> where you came from and we can try to contact the other site in order to fix the problem.</p>
+	
+	<h3>What's next</h3>
+	<ul class="next">
+		<li><a href="javascript:history.go(-1)">Back to previous page</a></li>
+		<li><a href="/">Go to the Homepage</a></li>
+	</ul>
+</div>
+{% endblock %}

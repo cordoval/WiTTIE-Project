@@ -1,0 +1,9 @@
+{% extends 'WiTTIECoreBundle::base.html.twig' %}
+
+{% block title %}Find a Book{% endblock %}
+
+{% block body %}
+{% for book in books %}
+<h2><a href="{{ path('wittie_core_page_show', { 'id': book.id }) }}">{{ book.title }}</a></h2>
+{% endfor %}
+{% endblock %}

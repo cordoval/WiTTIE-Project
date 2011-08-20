@@ -1,0 +1,18 @@
+.slots.editable .slot { padding: 5px 5px 20px; }
+.slots.editable .slot:hover { background: url("/images/bg-slot-hover.png") repeat scroll 50% 50% transparent; }
+
+.slots.editable .slot ul.controls
+{
+	list-style: none;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+.slots.editable .slot ul.controls li { float: right; padding: 4px; }
+.slots.editable .slot ul.controls li.left { float: left; }
+
+.slots.editable a:hover { color: #e81858; }

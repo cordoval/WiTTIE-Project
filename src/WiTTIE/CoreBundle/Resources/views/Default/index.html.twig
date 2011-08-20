@@ -1,0 +1,8 @@
+{% extends 'WiTTIECoreBundle::base.html.twig' %}
+
+{% block body %}
+<div id="book-links">
+	<a id="book-find" href="{{ path('wittie_core_book_find') }}">Find a Book</a>
+	<a id="book-build" href="{{ path('wittie_core_book_build') }}">Build a Book</a>
+</div>
+{% endblock %}
