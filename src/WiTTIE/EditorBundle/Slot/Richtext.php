@@ -11,7 +11,11 @@ class Richtext
 	 */
 	protected $content;
 	
-	protected $_options;
+	protected $_options = array();
+	
+	protected $_defaults = array(
+		'content' => '',
+	);
 	
 	public function setContent($content)
 	{
@@ -24,14 +28,14 @@ class Richtext
 		return $this->content;
 	}
 	
+
 	public function setOptions($options)
 	{
-		$this->_options = $options;
+		$this->_options = array_merge($this->_defaults,$options);
 		$this->content = $options['content'];
 	}
 	
 	public function getOptions()
 	{
-		return $this->_options;
-	}
-}
+		return array_merge($this->_defaults, $this->_options);
+	}}

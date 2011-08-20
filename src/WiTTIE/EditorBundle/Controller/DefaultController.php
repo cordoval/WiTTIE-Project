@@ -7,6 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
+use WiTTIE\CoreBundle\WiTTIEGlobals;
+
 class DefaultController extends Controller
 {
 	/**
@@ -85,7 +87,7 @@ class DefaultController extends Controller
 		$type = new \WiTTIE\EditorBundle\Slot\Type();
 		
 		$form = $this->createFormBuilder($type)
-			->add('type','choice',array('expanded' => true, 'choices' => array('headline','richtext','rule')))
+			->add('type','choice',array('choices' => WiTTIEGlobals::getSlotTypes()))
 			->getForm();
 		
 		if ($this->getRequest()->getMethod() == 'POST')
@@ -98,13 +100,22 @@ class DefaultController extends Controller
 				
 				$slot = $repo->findOneById($id);
 				$page = $slot->getPage();
+				$response = $slot->getResponse();
+				$user = $slot->getUser();
+				
+				$entityName = '\\WiTTIE\\EditorBundle\\Slot\\'.ucfirst($type->getType());
+				$entity = new $entityName();
 				
 				$slot = new \WiTTIE\EditorBundle\Entity\Slot($type->getType());
+				if($page)     $slot->setPage($page);
+				if($response) $slot->setResponse($response);
+				if($user)     $slot->setUser($user);
+				$slot->setOptions($entity->getOptions());
 				
 				$em->persist($slot);
 				$em->flush();
 				
-				return new Response('reload');
+				return new Response(json_encode(array('reload' => true)));
 			}
 		}
 		

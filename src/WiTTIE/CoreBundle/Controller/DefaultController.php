@@ -44,6 +44,32 @@ class DefaultController extends Controller
 			$this->redirect($this->generateUrl('_homepage'));
 		}
 		
+		$em = $this->getDoctrine()->getEntityManager();
+		
+		$users = array(
+			array('Christopher','christopher@hmudesign.com'),
+			array('Liz','christopher+liz@hmudesign.com'),
+		);
+		
+		foreach($users as $i => $u)
+		{
+			$user = new User();
+			$user->setUsername($u[0]);
+			$user->setPlainPassword(strtolower($u[0]));
+			$user->setEmail($u[1]);
+			if(!$i) $user->addRole('ROLE_SUPER_ADMIN');
+			$user->setEnabled(true);
+			$em->persist($user);
+			
+			$slot = new Slot('title');
+			$slot->setUser($user);
+			$em->persist($slot);
+			
+			$slot = new Slot('richtext',array('content' => '<p>'.$u[0].'</p>'));
+			$slot->setUser($user);
+			$em->persist($slot);
+		}
+		
 		$pages = array(
 			'In Our Schools' => array(
 				'slots' => array(
@@ -90,7 +116,6 @@ class DefaultController extends Controller
 			)
 		);
 		
-		$em = $this->getDoctrine()->getEntityManager();
 		$this->load($em,$pages);
 		$em->flush();
 		

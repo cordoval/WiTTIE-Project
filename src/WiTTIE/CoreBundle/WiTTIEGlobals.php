@@ -12,9 +12,9 @@ class WiTTIEGlobals
 	protected static $breadcrumb;
 	
 	protected static $slot_types = array(
-		'headline' => array(),
-		'ckeditor' => array(),
-		'rule' => array(),
+		'headline' => 'Headline',
+		'richtext' => 'Rich Text',
+		'rule' => 'Horizontal Rule',
 	);
 	
 	public static function setBook(Page $book)
@@ -48,7 +48,7 @@ class WiTTIEGlobals
 		return null;
 	}
 	
-	public function getSlotTypes()
+	public static function getSlotTypes()
 	{
 		return self::$slot_types;
 	}

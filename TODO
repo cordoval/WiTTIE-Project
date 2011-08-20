@@ -4,11 +4,7 @@ Modules:
 	Data Set
 
 Slots:
-	Title
-	Headline
-	Rich Text
 	Video
-	Horizontal Rule
 	Pull Quote
 	Widget
 	Data Set
@@ -19,12 +15,6 @@ Properties (cascading):
 	abstract
 	num_responses
 
-Editor:
-	on slot hover
-		blue dashed border (padding when not hover)
-		edit button
-		add content after button
-
 Features:
 	internal messaging system
 	barnstars
@@ -34,3 +24,11 @@ Features:
 
 stuff:
 	pages depth
+	slot sorting (up/down/etc)
+	Permission checking
+	Editor/Administrator lists on book
+	Editor/Reviewer lists on response
+	slots to support youtube, glog, pull quote (Authors List will also be implemented as a slot)
+	barnstars
+	media manager (for adding pictures)
+	style options for the headlines, horizontal rules, and rich text

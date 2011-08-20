@@ -11,7 +11,11 @@ class Rule
 	 */
 	protected $style;
 	
-	protected $_options;
+	protected $_options = array();
+	
+	protected $_defaults = array(
+		'class' => '',
+	);
 	
 	
 	public static $styles = array(''=>'Plain','stars'=>'Stars');
@@ -34,12 +38,12 @@ class Rule
 	
 	public function setOptions($options)
 	{
-		$this->_options = $options;
+		$this->_options = array_merge($this->_defaults,$options);
 		$this->style = $options['class'];
 	}
 	
 	public function getOptions()
 	{
-		return $this->_options;
+		return array_merge($this->_defaults, $this->_options);
 	}
 }

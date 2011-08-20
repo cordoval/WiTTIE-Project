@@ -1,6 +1,6 @@
 <div id="usernav">
 {% if is_granted('ROLE_USER') %}
-	<a href="{{ path('fos_user_profile_show') }}">Profile</a>
+	<a href="{{ path('wittie_core_user_show') }}">Profile</a>
 	<a href="{{ path('fos_user_security_logout') }}">Log out</a>
 {% else %}
 	<a href="{{ path('fos_user_registration_register') }}">Register</a>

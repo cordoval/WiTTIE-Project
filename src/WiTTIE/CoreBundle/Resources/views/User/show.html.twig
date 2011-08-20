@@ -1,6 +1,7 @@
 {% extends 'WiTTIECoreBundle::base.html.twig' %}
 
-{% block title 'User: ' ~ username %}
+{% block title 'User: ' ~ user.username %}
 
 {% block body %}
+{% render 'WiTTIEEditorBundle:Default:slots' with { 'slots': user.slots, 'editable': editable } %}
 {% endblock %}

@@ -125,6 +125,7 @@ class SlotController extends Controller
 		
 		$form = $this->createFormBuilder($rule)
 			->add('style','choice',array('choices' => \WiTTIE\EditorBundle\Slot\Rule::$styles))
+			->add('level','choice',array('choices' => array('2','3','4','5','6')))
 			->getForm();
 		
 		if ($this->getRequest()->getMethod() == 'POST')

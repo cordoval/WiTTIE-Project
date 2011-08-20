@@ -11,7 +11,17 @@ class Headline
 	 */
 	protected $title;
 	
-	protected $_options;
+	/**
+	 * @Assert\NotBlank
+	 */
+	protected $level;
+	
+	protected $_options = array();
+	
+	protected $_defaults = array(
+		'content' => 'Headline',
+		'level' => '2',
+	);
 	
 	public function setTitle($title)
 	{
@@ -24,14 +34,26 @@ class Headline
 		return $this->title;
 	}
 	
+	public function setLevel($level)
+	{
+		$this->level = $level;
+		$this->_options['level'] = $level;
+	}
+	
+	public function getLevel()
+	{
+		return $this->level;
+	}
+	
 	public function setOptions($options)
 	{
-		$this->_options = $options;
+		$this->_options = array_merge($this->_defaults,$options);
 		$this->title = $options['content'];
+		$this->level = $options['level'];
 	}
 	
 	public function getOptions()
 	{
-		return $this->_options;
+		return array_merge($this->_defaults, $this->_options);
 	}
 }

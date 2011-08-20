@@ -12,12 +12,26 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class UserController extends Controller
 {
 	/**
-	 * @Route("/{username}")
+	 * @Route("/{username}", defaults = { "username" = null})
 	 * @Template()
 	 */
-	public function showAction($username)
+	public function showAction($username = null)
 	{
-		return array('username' => $username);
+		if($username == null)
+		{
+			$user = $this->container->get('security.context')->getToken()->getUser();
+			$editable = true;
+		}
+		else
+		{
+			$user = array();
+			$editable = false;
+		}
+		
+		return array(
+			'user' => $user,
+			'editable' => $editable,
+		);
 	}
 	
 	/**
